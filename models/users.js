@@ -40,16 +40,15 @@ class Users {
     }
 
     //signIn with email
-
     signIn(cb) {
-        const signInSql = `SELECT * FROM "users" WHERE "userEmail" = $1`
-        queryDB(signInSql, [this.userEmail], (err, result) => {
+        const signInSql = `SELECT * FROM "users" WHERE "userEmail" = $1 OR "userName" = $2`
+        queryDB(signInSql, [this.userEmail, this.userName], (err, result) => {
             if (err) return cb(err);
-            if (result.rows.length === 0) return cb(new Error('Email undefined !!!'));
+            if (result.rows.length === 0) return cb(new Error('Email undefined!!! OR Password undefined'));
             const encrypted = result.rows[0].userPassword;
             compare(this.userPassword, encrypted, (errCompare, same) => {
                 if(errCompare) return cb(errCompare);
-                if(!same) return cb(new Error('Password Wrong !!!'));
+                if(!same) return cb(new Error('Password Wrong!!!'));
                 cb(null, result.rows[0].userLastname);
             });
         });
@@ -66,6 +65,6 @@ module.exports = Users;
 // user.signUp(err => console.log(err));
 
 //signIn
-// const user = new Users('qafda', '12345');
+// const user = new Users('maximushuynhcsasdf', '12345');
 // user.signIn(err => console.log(err));
 
