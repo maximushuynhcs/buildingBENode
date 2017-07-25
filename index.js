@@ -13,3 +13,7 @@ app.listen(3000, () => console.log('Server Stated'));
 //Back-End
 app.get('/', (req, res) => res.render('./adminviews/adminhome'));
 app.get('/form', (req, res) => res.render('./adminviews/form'));
+
+//signUp - signIn
+app.get('/login', (req, res) => res.render('./views/adminviews/login.ejs'));
+app.get('/register', (req, res) => res.render('./adminviews/register'));
