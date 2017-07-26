@@ -24,10 +24,8 @@ function queryDB(sql, arrayData) {
 
 module.exports = queryDB;
 
-/* //Test Connected Database 
+//Test Connected Database 
 
-queryDB('SELECT * FROM "users"', [])
-.then(result => console.log(result.rows))
-.catch(result => console.log(err));
-
-*/
+// queryDB('SELECT * FROM "users"')
+// .then(result => console.log(result.rows))
+// .catch(result => console.log(err));

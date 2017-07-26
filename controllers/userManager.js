@@ -1,19 +1,16 @@
 const User = require('../models/users');
 
-module.exports = {
-
     //Redirect
-    loginRedirect: function(req, res) {
+    function loginRedirect(req, res) {
         res.render('adminviews/login.ejs')
-    },
+    }
 
-    registerRedirect: function(req, res) {
+    function registerRedirect(req, res) {
         res.render('adminviews/register.ejs')
-    },
+    }
 
-
-    //Action
-    signUp: function(req, res) {
+    //Handle [ signUp - signIn ]
+    function signUp(req, res) {
         const { userID, userName, userEmail, userPassword,
             userFirstname, userLastname, userIntroduce,
             userWork, userPhone, userAddress,
@@ -24,13 +21,21 @@ module.exports = {
             userWork, userPhone, userAddress,
             userBirthdate, userBirthYear, userGender, userDuty);
 
-        user.signIn(err => {
+        user.signUp(err => {
             if (err) return res.send('Wrong!!')
             res.render('../views/adminviews/adminhome.ejs');
         });
-    },
+    }
 
-    signIn: function(req, res) {
+    function signIn(req, res) {
 
     }
-};
+
+module.exports = {
+    //Redirect
+    loginRedirect,
+    registerRedirect,
+
+    //callAction
+    signUp
+}
