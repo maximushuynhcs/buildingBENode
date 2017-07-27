@@ -72,11 +72,11 @@
 
 								<fieldset>
 
-                                    <section>
+                                    <!-- <section>
                                         <label class="input"> <i class="icon-append fa fa-user"></i>
                                             <input type="text" name="userID" placeholder="ID">
                                             <b class="tooltip tooltip-bottom-right">Needed to enter the website</b> </label>
-                                    </section>
+                                    </section> -->
 
 									<section>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
@@ -101,6 +101,12 @@
 											<input type="password" name="passwordConfirm" placeholder="Confirm password">
 											<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
 									</section>
+
+									<section>
+											<label class="textarea"> <i class="icon-append fa fa-comment"></i> 										
+												<textarea rows="5" name="userIntroduce" placeholder="Introduce"></textarea> 
+											</label>
+										</section>
 								</fieldset>
 
 								<fieldset>
@@ -143,11 +149,13 @@
 
                                         <section class="col col-6" style="display: none">
 											<label class="select">
-												<select name="userDuty">
+												<select name="userTypeID">
 													<option value="1" disabled="">Administrator</option>
 													<option value="2" selected="">User</option>
 												</select> <i></i> </label>
-                                        </section>
+										</section>
+											
+										
 									</div>
 
 									<div class="row">
@@ -156,12 +164,6 @@
 										<section class="col col-6">
 											<label class="input"> <i class="icon-append fa fa-calendar"></i>
 												<input type="text" name="userBirthdate" placeholder="Birthdate" class="datepicker" data-dateformat='dd/mm/yy'>
-											</label>
-                                        </section>
-                                        
-                                        <section class="col col-6">
-											<label class="input"> <i class="icon-append fa fa-calendar"></i>
-												<input type="text" name="userBirthYear" placeholder="BirthYear" class="date-own form-control" data-dateformat='yy'>
 											</label>
                                         </section>
 
