@@ -26,4 +26,4 @@ app.get('/signIn', userManager.loginRedirect);
 app.get('/signUp', userManager.registerRedirect);
 
 app.post('/signIn', parser, userManager.signIn);
-app.post('/signUp', parser, userManager.signUp);
+// app.post('/signUp', parser, userManager.signUp);

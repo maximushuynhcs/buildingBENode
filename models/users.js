@@ -41,16 +41,15 @@ class Users {
     }
 
     signIn(cb) {
-        const signInsql = `SELECT * FROM public."users" WHERE "userEmail" = $1`;
-        console.log(signInsql);
-        queryDB(signInsql, [this.userEmail], (err, result) => {
-            if (err) return cb(err);
-            if (result.rows.length === 0) return cb(new Error('Email undefined!!!'));
+        const signInsql = `SELECT * FROM public."users" WHERE "userName" = "$this.userName"`;
+        queryDB(signInsql, [], (err, result) => {
+            if (err) return cb(err); 
+            if (result.rows.length === 0) return cb(new Error('Username Wrong!!!'));
             const encrypted = result.rows[0].userPassword;
             compare(this.userPassword, encrypted, (errCompare, same) => {
                 if (errCompare) return cb(errCompare);
                 if (!same) return cb(new Error('Password Wrong!!!'));
-                cb(null, result.row[0].userLastname);
+                cb(null, result.rows[0].userLastname);
             });
         });
     }
@@ -67,8 +66,7 @@ module.exports = Users;
 // user.signUp(err => console.log(err));
 
 //signIn
-// const user = new Users('','administrator@gmail.com', '12345');
-// user.signIn(err => console.log(err));
+const user = new Users('minhhncs', '','12345');
+user.signIn(err => console.log(err));
 
-// console.log(user);
-
+console.log(user)
